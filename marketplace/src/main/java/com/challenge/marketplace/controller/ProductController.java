@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -37,6 +39,7 @@ public class ProductController {
 	private ProductRepository productRepository;
 
 	@GetMapping
+	@Cacheable(value = "productsList")
 	public Page<ProductDto> list(@PageableDefault(sort ="id", direction = Direction.DESC, page = 0, size = 3) Pageable pageable){
 		Page<Product> products = productRepository.findAll(pageable);
 		return ProductDto.convert(products);
@@ -44,6 +47,7 @@ public class ProductController {
 	
 	@PostMapping
 	@Transactional
+	@CacheEvict(value = "productsList", allEntries = true)
 	public ResponseEntity<ProductDto> insert(@RequestBody @Valid ProductForm form, UriComponentsBuilder uriBuilder){
 		Product product = form.convert(productRepository);
 		productRepository.save(product);
@@ -74,6 +78,7 @@ public class ProductController {
 	}
 	
 	@DeleteMapping("/{id}")
+	@CacheEvict(value = "productsList", allEntries = true)
 	public ResponseEntity<?> delete(@PathVariable Long id){
 		Optional<Product> optional = productRepository.findById(id);
 		if(optional.isPresent()) {
