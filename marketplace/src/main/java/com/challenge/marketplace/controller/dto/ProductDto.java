@@ -1,8 +1,9 @@
 package com.challenge.marketplace.controller.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
+
+
+import org.springframework.data.domain.Page;
 
 import com.challenge.marketplace.model.Product;
 
@@ -34,8 +35,8 @@ public class ProductDto {
 		return creationDate;
 	}
 	
-	public static List<ProductDto> convert(List<Product> products){
-		return products.stream().map(ProductDto::new).collect(Collectors.toList());
+	public static Page<ProductDto> convert(Page<Product> products){
+		return products.map(ProductDto::new);
 	}
 	
 	
