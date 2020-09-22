@@ -7,8 +7,7 @@ INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Notebook', 'Notebo
 
 INSERT INTO BUYER(name) VALUES('Ricardo');
 INSERT INTO BUYER(name) VALUES('Marina');
-INSERT INTO BUYER(name) VALUES('Fernando');
-INSERT INTO BUYER(name) VALUES('Gabriela');
+
 
 
 
@@ -26,5 +25,5 @@ INSERT INTO PRODUCT_CATEGORY(name) VALUES('Atacado');
 
 
 
-INSERT INTO SALE(seller_id, buyer_id, product_id) VALUES(2, 3, 1);
+INSERT INTO SALE(seller_id, buyer_id, product_id) VALUES(2, 1, 1);
 INSERT INTO SALE(seller_id, buyer_id, product_id) VALUES(4, 2, 3);

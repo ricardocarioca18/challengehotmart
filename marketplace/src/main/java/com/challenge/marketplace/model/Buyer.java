@@ -5,7 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.envers.Audited;
+
 @Entity
+@Audited
 public class Buyer {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -49,8 +52,6 @@ public class Buyer {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	
+	}	
 
 }
