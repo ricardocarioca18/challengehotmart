@@ -7,11 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.envers.Audited;
+//import org.hibernate.envers.Audited;
 
 
 @Entity
-@Audited
+//@Audited
 public class Product {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
