@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 //import org.hibernate.envers.Audited;
 
-@Entity
 //@Audited
+@Entity
 public class Seller {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)

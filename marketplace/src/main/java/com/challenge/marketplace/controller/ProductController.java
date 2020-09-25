@@ -40,7 +40,7 @@ public class ProductController {
 
 	@GetMapping
 	@Cacheable(value = "productsList")
-	public Page<ProductDto> list(@PageableDefault(sort ="id", direction = Direction.DESC, page = 0, size = 3) Pageable pageable){
+	public Page<ProductDto> list(@PageableDefault(sort ="id", direction = Direction.ASC, page = 0, size = 5) Pageable pageable){
 		Page<Product> products = productRepository.findAll(pageable);
 		return ProductDto.convert(products);
 	}
