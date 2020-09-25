@@ -15,6 +15,7 @@ INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Volante PC G27', '
 INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Volante PC G29', 'Volante PC Gamer III', '2020-08-06 13:00:00');
 INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Volante PC ', 'Gabinete Cooler Master IV', '2020-09-15 16:00:00');
 INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X40', 'Gabinete Cooler Master IV', '2020-09-15 16:00:00');
+INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X50', 'Gabinete Cooler Master IV', '2020-09-15 16:00:00');
 
 INSERT INTO CLIENT(name, email, password) VALUES('ricardo', 'ricardo@email.com', '$2a$10$/MhNHqFFop8S71YMMlBmwu9vTahF6b/Rh.a6q5ibiAryWHQJkwbGq');
 
