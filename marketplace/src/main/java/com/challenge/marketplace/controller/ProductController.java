@@ -77,6 +77,17 @@ public class ProductController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	
+	
+	@GetMapping("/searchCategory/{name}&{category}")
+	public Page<ProductDto> searchByNameAndCategory(@PageableDefault(sort ="id", direction = Direction.ASC, page = 0, size = 5) Pageable pageable, @PathVariable String name, @PathVariable String category){
+		Page<Product> products = productRepository.findByNameAndCategoryNameOrderByScore(pageable, name, category);
+		System.out.println("Produtos: "+products);
+		return ProductDto.convert(products);
+		
+	}
+	
+	
 	@DeleteMapping("/{id}")
 	@CacheEvict(value = "productsList", allEntries = true)
 	public ResponseEntity<?> delete(@PathVariable Long id){

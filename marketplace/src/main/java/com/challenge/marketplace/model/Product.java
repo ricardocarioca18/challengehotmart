@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 //import org.hibernate.envers.Audited;
 
@@ -18,7 +19,10 @@ public class Product {
 	private Long id;
 	private String name;
 	private String description;
-	private LocalDateTime creationDate = LocalDateTime.now();	
+	private LocalDateTime creationDate = LocalDateTime.now();
+	@ManyToOne
+	private ProductCategory category;
+	private float score;
 	
 	public Product() {		
 	}
@@ -78,6 +82,20 @@ public class Product {
 	public void setCreationDate(LocalDateTime creationDate) {
 		this.creationDate = creationDate;
 	}
+	public float getScore() {
+		return score;
+	}
+	public void setScore(float score) {
+		this.score = score;
+	}
+	public ProductCategory getProductCategory() {
+		return category;
+	}
+	public void setProductCategory(ProductCategory productCategory) {
+		this.category = productCategory;
+	}
+	
+	
 	
 	
 }

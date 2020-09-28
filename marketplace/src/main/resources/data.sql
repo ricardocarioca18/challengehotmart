@@ -1,21 +1,3 @@
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Notebook', 'Notebook SAMSUNG Expert X30, Core i3, 4GB RAM', '2020-09-20 11:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Notebook', 'Notebook SAMSUNG Expert X40, Core i5, 8GB RAM', '2020-07-15 12:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Notebook', 'Notebook SAMSUNG Expert X50, Core i7, 8GB RAM', '2020-08-06 13:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Notebook', 'Notebook SAMSUNG Expert E20, Pentium, 2GB RAM', '2020-09-15 16:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Notebook', 'Notebook SAMSUNG Expert E30, Celeron, 2GB RAM', '2020-09-15 16:00:00');
-
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X10', 'Gabinete Cooler Master', '2020-09-20 11:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X20', 'Gabinete Cooler Master', '2020-07-15 12:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X30', 'Gabinete Cooler Master', '2020-08-06 13:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X40', 'Gabinete Cooler Master', '2020-09-15 16:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X50', 'Gabinete Cooler Master', '2020-09-15 16:00:00');
-
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Volante PC G25', 'Volante PC Gamer I', '2020-09-20 11:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Volante PC G27', 'Volante PC Gamer II', '2020-07-15 12:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Volante PC G29', 'Volante PC Gamer III', '2020-08-06 13:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Volante PC ', 'Gabinete Cooler Master IV', '2020-09-15 16:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X40', 'Gabinete Cooler Master IV', '2020-09-15 16:00:00');
-INSERT INTO PRODUCT(name, description, creation_Date) VALUES('Gabinete X50', 'Gabinete Cooler Master IV', '2020-09-15 16:00:00');
 
 INSERT INTO CLIENT(name, email, password) VALUES('ricardo', 'ricardo@email.com', '$2a$10$/MhNHqFFop8S71YMMlBmwu9vTahF6b/Rh.a6q5ibiAryWHQJkwbGq');
 
@@ -52,9 +34,6 @@ INSERT INTO BUYER (name) VALUES('Ronan Weiss'),('Richard Nielsen'),('Camille She
 
 
 
-
-
-
 INSERT INTO SELLER(name) VALUES('Rodrigo Mendez');
 INSERT INTO SELLER (name) VALUES('Zorita Terrell'),('Slade Knox'),('Miriam Cole'),('Dominic Jensen'),('Griffin Pierce'),('Leo White'),('Clare Huff'),('Fulton Sargent'),('Signe May'),('Chadwick Rice');
 INSERT INTO SELLER (name) VALUES('Omar Larson'),('Salvador Anthony'),('Colt Higgins'),('Samantha Carpenter'),('Prescott Alvarez'),('Lee Johnston'),('Alana Rodriquez'),('Hiroko Cole'),('Eaton Rivas'),('Lael Hebert');
@@ -68,12 +47,37 @@ INSERT INTO SELLER (name) VALUES('Zenia Wong'),('Madaline Vasquez'),('Clarke Bar
 INSERT INTO SELLER (name) VALUES('Alexander Beasley'),('Connor Mccray'),('Armand Spears'),('Driscoll Humphrey'),('Farrah Mason'),('Drew Butler'),('Madeson Randall'),('Glenna Woods'),('Zachary Wiggins'),('Oleg Sargent');
 
 
-INSERT INTO PRODUCT_CATEGORY(name) VALUES('Informática');
-INSERT INTO PRODUCT_CATEGORY(name) VALUES('Indústria');
-INSERT INTO PRODUCT_CATEGORY(name) VALUES('Varejo');
-INSERT INTO PRODUCT_CATEGORY(name) VALUES('Atacado');
+
+
+INSERT INTO PRODUCT_CATEGORY(name) VALUES('business');
+INSERT INTO PRODUCT_CATEGORY(name) VALUES('entertainment');
+INSERT INTO PRODUCT_CATEGORY(name) VALUES('general');
+INSERT INTO PRODUCT_CATEGORY(name) VALUES('health');
+INSERT INTO PRODUCT_CATEGORY(name) VALUES('science');
+INSERT INTO PRODUCT_CATEGORY(name) VALUES('sports');
+INSERT INTO PRODUCT_CATEGORY(name) VALUES('technology');
+
+
+
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Caderno', 'Descricao do produto', '2020-09-15 16:00:00', 7, 8.9);
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Corda', 'Descricao do produto', '2020-09-15 16:00:00', 7, 9.9);
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Chinelo', 'Descricao do produto', '2020-09-15 16:00:00', 7, 7.9);
+
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Caderno', 'Descricao do produto', '2020-09-15 16:00:00', 7, 9.0);
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Cetona', 'Descricao do produto', '2020-09-15 16:00:00', 7, 10.0);
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Cepacol', 'Descricao do produto', '2020-09-15 16:00:00', 7, 8.0);
+
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Caderno', 'Descricao do produto', '2020-09-15 16:00:00', 7, 9.5);
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Caderno', 'Descricao do produto', '2020-09-15 16:00:00', 7, 7.9);
+INSERT INTO PRODUCT(name, description, creation_Date, category_id, score) VALUES('Celular', 'Descricao do produto', '2020-09-15 16:00:00', 3, 8.0);
+
+
+
 
 
 
 INSERT INTO SALE(seller_id, buyer_id, product_id) VALUES(2, 1, 1);
-INSERT INTO SALE(seller_id, buyer_id, product_id) VALUES(4, 2, 3);
+INSERT INTO SALE(seller_id, buyer_id, product_id) VALUES(4, 2, 2);
+
+
+
