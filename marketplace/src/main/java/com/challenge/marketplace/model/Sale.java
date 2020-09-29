@@ -1,5 +1,7 @@
 package com.challenge.marketplace.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,16 +22,20 @@ public class Sale {
 	private Buyer buyer;
 	@ManyToOne
 	private Product product;
-			
+	private int evaluation;
+	private LocalDate date;
+	
 	public Sale() {
 	}
 
-	public Sale(Long id, Seller seller, Buyer buyer, Product product) {
+	public Sale(Long id, Seller seller, Buyer buyer, Product product, int evaluation, LocalDate date) {
 		super();
 		this.id = id;
 		this.seller = seller;
 		this.buyer = buyer;
 		this.product = product;
+		this.evaluation = evaluation;
+		this.date = date;
 	}
 	
 	
@@ -89,10 +95,21 @@ public class Sale {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
-	
-	
-	
-	
+
+	public int getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(int evaluation) {
+		this.evaluation = evaluation;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}	
 	
 }
