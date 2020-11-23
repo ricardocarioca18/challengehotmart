@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+
+import com.challenge.marketplace.controller.form.UpdateProductForm;
 
 //import org.hibernate.envers.Audited;
 
@@ -93,6 +96,12 @@ public class Product {
 	}
 	public void setProductCategory(ProductCategory productCategory) {
 		this.category = productCategory;
+	}
+
+	public void update(@Valid UpdateProductForm form) {
+		this.name = form.getName();
+		this.description = form.getDescription();
+		
 	}
 	
 	

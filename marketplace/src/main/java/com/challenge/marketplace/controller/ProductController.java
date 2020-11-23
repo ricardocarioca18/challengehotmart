@@ -30,6 +30,9 @@ import com.challenge.marketplace.controller.form.ProductForm;
 import com.challenge.marketplace.controller.form.UpdateProductForm;
 import com.challenge.marketplace.model.Product;
 import com.challenge.marketplace.repository.ProductRepository;
+import com.challenge.marketplace.service.ProductService;
+
+import javassist.NotFoundException;
 
 @RestController
 @RequestMapping(value = "/products")
@@ -37,6 +40,9 @@ public class ProductController {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private ProductService productService;
 
 	@GetMapping
 	@Cacheable(value = "productsList")
@@ -57,24 +63,16 @@ public class ProductController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<DetailProductDto> find(@PathVariable Long id){
-		Optional<Product> product = productRepository.findById(id);
-		if(product.isPresent()) {
-			return ResponseEntity.ok(new DetailProductDto(product.get()));
-		}
-		return ResponseEntity.notFound().build();
-		
+	public ResponseEntity<DetailProductDto> find(@PathVariable Long id) throws NotFoundException{
+		Product product = productService.find(id);		
+		return ResponseEntity.ok(new DetailProductDto(product));
 	}
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<ProductDto> update(@PathVariable Long id, @RequestBody @Valid UpdateProductForm form){		
-		Optional<Product> optional = productRepository.findById(id);
-		if(optional.isPresent()) {
-			Product product = form.update(id, productRepository);
-			return ResponseEntity.ok(new ProductDto(product));
-		}
-		return ResponseEntity.notFound().build();
+	public ResponseEntity<ProductDto> update(@PathVariable Long id, @RequestBody @Valid UpdateProductForm form) throws NotFoundException{	
+		Product product = productService.update(id, form);		
+		return ResponseEntity.ok(new ProductDto(product));
 	}
 	
 	
